@@ -49,3 +49,6 @@ class Event
     else
       @e.returnValue = false
 
+
+module.exports =
+  Event: Event
