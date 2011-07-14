@@ -1,4 +1,6 @@
 
+{Event} = require './event'
+
 
 class Element
 
@@ -18,6 +20,9 @@ class Element
       else
         for own k of arg
           node[k] = arg[k]
+  
+  appendChild: (x) ->
+    @_.appendChild x._
   
   prependChild: (x) ->
     if @_.childNodes.length == 0
@@ -40,6 +45,12 @@ class Element
     for own k, v of d
       @._.style[k] = v
   
+  setPos: (r) ->
+    @setStyles {
+      left:   Math.round r.x
+      top:    Math.round r.y
+    }
+  
   setRect: (r) ->
     @setStyles {
       left:   Math.round r.x
@@ -47,6 +58,10 @@ class Element
       width:  Math.round r.w
       height: Math.round r.h
     }
+  
+  on: (k, f) ->
+    @_['on' + k] = (event) ->
+      f new Event event
 
 
 

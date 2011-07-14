@@ -52,3 +52,4 @@ class Event
 
 module.exports =
   Event: Event
+  KEYCODE_RETURN: KEYCODE_RETURN
