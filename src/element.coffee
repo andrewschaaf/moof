@@ -24,6 +24,17 @@ class Element
   appendChild: (x) ->
     @_.appendChild x._
   
+  removeChildren: () ->
+    x = @_.lastChild
+    while x
+      @_.removeChild x
+      x = @_.lastChild
+  
+  setChildren: (arr) ->
+    @removeChildren()
+    for x in arr
+      @appendChild x
+  
   prependChild: (x) ->
     if @_.childNodes.length == 0
       @_.appendChild x._
