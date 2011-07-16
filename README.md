@@ -1,7 +1,7 @@
 
 ## moof: Misc Objects og Functions
 
-*("og" is means "and" in some languages and "moof" is what [dogcows](http://en.wikipedia.org/wiki/Dogcow) say)*
+*("og" means "and" in some languages and "moof" is what [dogcows](http://en.wikipedia.org/wiki/Dogcow) say)*
 
 
 ### Features
