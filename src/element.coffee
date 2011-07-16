@@ -41,16 +41,32 @@ class Element
     else
     @_.insertBefore x._, @_.firstChild
   
+  insertBefore: (kid, existingKid) ->
+    @_.insertBefore kid._, existingKid._
+  
   appendToBody: () ->
     document.body.appendChild @_
     @
   
+  appendToHead: () ->
+    document.getElementsByTagName("head")[0].appendChild @_
+  
   appendTo: (x) ->
     x._.appendChild @_
-    @
+  
+  prependTo: (x) ->
+    x.prependChild @
   
   remove: () ->
-    @_.parentNode.removeChild(@_)
+    @_.parentNode.removeChild @_
+  
+  setOpacity: (fraction) ->
+    percent = Math.round(100 * fraction)
+    @setStyles {
+      opacity: fraction
+      filter: "alpha(opacity=#{percent})"
+      '-ms-filter': "progid:DXImageTransform.Microsoft.Alpha(opacity=#{percent})"
+    }
   
   setStyles: (d) ->
     for own k, v of d
@@ -64,16 +80,47 @@ class Element
   
   setRect: (r) ->
     @setStyles {
-      left:   Math.round r.x
-      top:    Math.round r.y
-      width:  Math.round r.w
-      height: Math.round r.h
+      left:   Math.round(r.x) + 'px'
+      top:    Math.round(r.y) + 'px'
+      width:  Math.round(r.w) + 'px'
+      height: Math.round(r.h) + 'px'
     }
   
   on: (k, f) ->
     @_['on' + k] = (event) ->
       f new Event event
+  
+  setClasses: (classes) ->
+    @_.className = classes.join ' '
+  
+  getClasses: () ->
+    if @_.className
+      @_.className.split ' '
+    else
+      []
 
+  addClass: (className) ->
+    arr = @getClasses()
+    if arr.indexOf(className) == -1
+      arr.push className
+      @setClasses arr
+
+  removeClass: (className) ->
+    arr = @getClasses()
+    i = arr.indexOf className
+    if i != -1
+      arr.splice i, 1
+      @setClasses
+  
+  getValue: () ->
+    @_.value
+  
+  setValue: (x) ->
+    @_.value = x
+  
+  scrollToBottom: () ->
+    @_.scrollTop = @_.scrollHeight - @_.clientHeight
+  
 
 
 module.exports =
