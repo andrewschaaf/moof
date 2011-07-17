@@ -26,7 +26,7 @@ json_encode = (x) ->
   else
     arr = []
     for own k, v of x
-      bs.push json_encode(k), ":", json_encode(v)
+      arr.push json_encode(k), ":", json_encode(v)
     "{" + arr.join(',') + "}"
 
 
