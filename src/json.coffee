@@ -11,12 +11,8 @@ json_encode = (x) ->
   else if t == 'string'
     #XB confirm replace is non-destructive
     #TODO escape everything needed
-    (
-        '"' + 
-        (x
-            .replace(/\\/g, "\\\\")
-            .replace(/"/g, '\\"')
-            .repalce(/\n/, '\\n')) + 
+    ('"' + 
+        (x.replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/, '\\n')) + 
         '"')
   else if x instanceof Array
     arr = []
@@ -26,7 +22,7 @@ json_encode = (x) ->
   else
     arr = []
     for own k, v of x
-      arr.push json_encode(k), ":", json_encode(v)
+      arr.push json_encode(k) + ":" + json_encode(v)
     "{" + arr.join(',') + "}"
 
 
