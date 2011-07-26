@@ -1,5 +1,6 @@
 
-{interpolateRects, interpolatePoints} = require 'geom'
+{interpolateRects, interpolatePoints} = require './geom'
+{interpolateColors} = require './color'
 
 
 class Tween
@@ -22,21 +23,29 @@ class Tween
 
 class Morph
   
-  constructor: (element, info) ->
+  constructor: (elements, info) ->
     {
       duration, transition, oncomplete
-      opacity, rect, pos
+      opacity, rect, pos, background
     } = info
+    
+    if not (elements instanceof Array)
+      elements = [elements]
+    
     new Tween duration, transition, (t) ->
-      
-      if opacity
-        element.setOpacity(opacity[0] + (opacity[1] - opacity[0]) * t)
-      
-      if rect
-        element.setRect interpolateRects rect[0], rect[1], t
-      
-      if pos
-        element.setPos interpolatePoints pos[0], pos[1], t
+      for element in elements
+        
+        if opacity
+          element.setOpacity(opacity[0] + (opacity[1] - opacity[0]) * t)
+        
+        if rect
+          element.setRect interpolateRects rect[0], rect[1], t
+        
+        if pos
+          element.setPos interpolatePoints pos[0], pos[1], t
+        
+        if background
+          element._.style.background = interpolateColors(background[0], background[1], t)
       
       if t == 1 and oncomplete
           oncomplete()
