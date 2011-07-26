@@ -19,7 +19,7 @@ class Element
       
       else
         for own k of arg
-          node[k] = arg[k]
+          node[k] = "" + arg[k]
   
   appendChild: (x) ->
     @_.appendChild x._
@@ -35,6 +35,9 @@ class Element
     for x in arr
       @appendChild x
   
+  setChild: (x) ->
+    @setChildren [x]
+  
   prependChild: (x) ->
     if @_.childNodes.length == 0
       @_.appendChild x._
@@ -46,7 +49,6 @@ class Element
   
   appendToBody: () ->
     document.body.appendChild @_
-    @
   
   appendToHead: () ->
     document.getElementsByTagName("head")[0].appendChild @_
@@ -59,6 +61,10 @@ class Element
   
   remove: () ->
     @_.parentNode.removeChild @_
+  
+  setTextChild: (text) ->
+    @removeChildren()
+    @_.appendChild document.createTextNode text
   
   setOpacity: (fraction) ->
     percent = Math.round(100 * fraction)
