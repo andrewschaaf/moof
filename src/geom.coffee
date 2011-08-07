@@ -24,7 +24,7 @@ class Rect
       @h * scaledBy)
   
   center: () ->
-    new Pos(
+    new Point(
       @x + (@w / 2),
       @y + (@h / 2))
   
