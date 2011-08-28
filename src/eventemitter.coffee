@@ -12,6 +12,12 @@ mixInEventEmitter = (x) ->
   x.on = (k, f) ->
     arr = @EventEmitter_listeners[k] = (@EventEmitter_listeners[k] or [])
     arr.push f
+  
+  x.listeners = (k) ->
+    if not @EventEmitter_listeners[k]
+      @EventEmitter_listeners[k] = []
+    @EventEmitter_listeners[k]
+  
 
 
 
