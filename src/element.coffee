@@ -23,7 +23,7 @@ class Element
   
   appendChildren: (arr) ->
     for x in arr
-      appendChild x
+      @appendChild x
   
   appendChild: (x) ->
     @_.appendChild x._
