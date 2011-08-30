@@ -21,6 +21,10 @@ class Element
         for own k of arg
           node[k] = "" + arg[k]
   
+  appendChildren: (arr) ->
+    for x in arr
+      appendChild x
+  
   appendChild: (x) ->
     @_.appendChild x._
   
