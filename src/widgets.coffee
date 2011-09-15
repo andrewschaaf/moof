@@ -73,7 +73,7 @@ class Button extends Element
         _.extend opt, x
     
     if text
-      @overlay.appendChild @label = D 'label', [text]
+      @overlay.appendChild @label = D 'Blabel', [text]
   
   setText: (text) ->
     @label.setTextChild text
