@@ -132,7 +132,12 @@ class Element
     @_.scrollTop = @_.scrollHeight - @_.clientHeight
   
 
+E = (args...) -> new Element args...
+D = (args...) -> new Element 'div', args...
+
 
 module.exports =
   Element: Element
+  E: E
+  D: D
 
