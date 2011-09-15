@@ -44,7 +44,7 @@ class Button extends Element
       classes = "Button #{x.lmr}"
     
     super 'a', classes, [
-      @overlay = E 'div', 'overlay'
+      @overlay = E 'div', 'Boverlay'
     ]
     
     if type == 'lmr'
@@ -52,9 +52,9 @@ class Button extends Element
         # position: absolute
         E 'table', [
           E 'tr', [
-            E 'td', "LR L"
-            E 'td', "M"
-            E 'td', "LR R"
+            E 'td', "BLR BL"
+            E 'td', "BM"
+            E 'td', "BLR BR"
           ]
         ]
       ]
