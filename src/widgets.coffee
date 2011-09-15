@@ -19,16 +19,16 @@ BUTTON_STYLUS = """
   width 100%
   height 100%
 
-.Button .overlay
+.Button .Boverlay
   z-index 50
   abs(0, 0)
   dim(100%, 100%)
   text-align center
 
-.Button .L
+.Button .BL
   padding 0
 
-.Button .R
+.Button .BR
   padding 0
 
 """
