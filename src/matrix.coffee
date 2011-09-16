@@ -5,18 +5,24 @@
 
 
 class Matrix
-  constructor: (@w, @h, v = 0) ->
-    vIsAFunction = ((typeof v) == 'function')
-    m = []
-    for y in [0...h]
-      row = []
-      for x in [0...w]
-        if vIsAFunction
-          row.push v(x, y)
-        else
-          row.push v
-      m.push row
-    @m = m
+  constructor: (arg0, @h, v = 0) ->
+    if typeof arg0 == 'number'
+      @w = arg0
+      vIsAFunction = ((typeof v) == 'function')
+      m = []
+      for y in [0...h]
+        row = []
+        for x in [0...w]
+          if vIsAFunction
+            row.push v(x, y)
+          else
+            row.push v
+        m.push row
+      @m = m
+    else
+      @m = arg0
+      @h = arg0.length
+      @w = arg0[0].length
   
   rotated: (rotation90s) ->
     rotation90s %= 4
@@ -47,3 +53,6 @@ class Matrix
         ysum += weight * (y + 0.5)
     new Point(xsum / totalWeight, ysum / totalWeight)
 
+
+module.exports =
+  Matrix: Matrix
