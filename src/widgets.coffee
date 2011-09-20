@@ -72,6 +72,9 @@ class Button extends Element
       else
         _.extend opt, x
     
+    if opt.id
+      @._.id = opt.id
+    
     if text
       @overlay.appendChild @label = D 'Blabel', [text]
   
