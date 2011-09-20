@@ -10,7 +10,7 @@
 <!-- * Readable code with Docco docs -->
 
 * 100% freshly brewed CoffeeScript
-* 100% CommonJS, e.g. for use with [commonjs-merger](https://github.com/andrewschaaf/commonjs-merger)
+* 100% CommonJS, e.g. for use with [stitch](https://github.com/sstephenson/stitch)
 * Non-browser-related items usable from NodeJS
 
 
