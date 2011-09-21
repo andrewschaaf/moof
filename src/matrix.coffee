@@ -10,9 +10,9 @@ class Matrix
       @w = arg0
       vIsAFunction = ((typeof v) == 'function')
       m = []
-      for y in [0...h]
+      for y in [0...@h]
         row = []
-        for x in [0...w]
+        for x in [0...@w]
           if vIsAFunction
             row.push v(x, y)
           else
