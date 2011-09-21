@@ -15,6 +15,7 @@ matrix_create = (w, h, v = 0) ->
       else
         row.push v
     m.push row
+  m
 
 
 matrix_rotated = (m, rotation90s) ->
