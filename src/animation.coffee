@@ -32,7 +32,10 @@ class Morph
     if not (elements instanceof Array)
       elements = [elements]
     
+    numFrames = 0
+    
     new Tween duration, transition, (t) ->
+      numFrames++
       for element in elements
         
         if opacity
@@ -48,7 +51,10 @@ class Morph
           element._.style.background = interpolateColors(background[0], background[1], t)
       
       if t == 1 and oncomplete
-          oncomplete()
+        oncomplete {
+          numFrames: numFrames
+          info: info
+        }
 
 
 linear    = (t) -> t
