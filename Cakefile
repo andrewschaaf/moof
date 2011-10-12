@@ -3,8 +3,8 @@
 
 
 task 'dev', () ->
-  noisyExec "coffee", ['-cwo', 'lib', 'src']
+  noisyExec "coffee -cwo lib src"
 
 
 task 'build', () ->
-  noisyExec "coffee", ['-co', 'lib', 'src']
+  noisyExec "coffee -co lib src"
