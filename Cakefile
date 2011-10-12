@@ -7,4 +7,4 @@ task 'dev', () ->
 
 
 task 'build', () ->
-  noisyExec "coffee", ['-cwo', 'lib', 'src']
+  noisyExec "coffee", ['-co', 'lib', 'src']
