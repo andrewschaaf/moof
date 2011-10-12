@@ -1,4 +1,7 @@
 
+{Point} = require './geom'
+
+
 KEYCODE_DELETE = 8
 KEYCODE_TAB = 9
 KEYCODE_RETURN = 13
