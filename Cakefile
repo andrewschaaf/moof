@@ -1,9 +1,10 @@
 
-{spawn} = require 'child_process'
+{noisyExec} = require 'tafa-misc-util'
 
 
 task 'dev', () ->
-  p = spawn "coffee", ['-cwo', 'lib', 'src']
-  p.stderr.on 'data', (data) -> process.stderr.write data
-  p.stdout.on 'data', (data) -> process.stdout.write data
+  noisyExec "coffee", ['-cwo', 'lib', 'src']
 
+
+task 'build', () ->
+  noisyExec "coffee", ['-cwo', 'lib', 'src']
