@@ -120,7 +120,7 @@ class Element
     i = arr.indexOf className
     if i != -1
       arr.splice i, 1
-      @setClasses
+      @setClasses arr
   
   getValue: () ->
     @_.value
