@@ -64,7 +64,7 @@ class Element
     x.prependChild @
   
   remove: () ->
-    @_.parentNode.removeChild @_
+    @_.parentNode?.removeChild @_
   
   setTextChild: (text) ->
     @removeChildren()
