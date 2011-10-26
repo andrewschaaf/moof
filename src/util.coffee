@@ -23,6 +23,7 @@ invertedDict = (d) ->
 
 startswith = (s, s2) -> (s.length >= s2.length) and (s.substr(0, s2.length) == s2)
 endswith   = (s, s2) -> (s.length >= s2.length) and (s.substr(s.length - s2.length) == s2)
+
 rstrip = (s, chars = "\t\n\v\f\r ") ->
   m = s.match new RegExp "[#{re_escape chars}]+$"
   if m then s.substr(0, s.length - m[0].length) else s
@@ -30,6 +31,9 @@ rstrip = (s, chars = "\t\n\v\f\r ") ->
 lstrip = (s, chars = "\t\n\v\f\r ") ->
   m = s.match new RegExp "^[#{re_escape chars}]+"
   if m then s.substr(m[0].length) else s
+
+strip = (s, chars = "\t\n\v\f\r ") ->
+  lstrip(rstrip(s, chars), chars)
 
 rjust = (s, width, fillchar = ' ') ->
   n = width - s.length
@@ -82,6 +86,7 @@ module.exports =
   endswith: endswith
   rstrip: rstrip
   lstrip: lstrip
+  strip: strip
   rjust: rjust
   re_escape: re_escape
   
