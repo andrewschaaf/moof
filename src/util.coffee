@@ -54,12 +54,12 @@ ALPHABET58 = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
 
 
 # Ensure we don't return 1. (Easier than trusting/verifying each JS impl)
-exports.random = random = () ->
+random = () ->
   x = Math.random()
   if x == 1 then 0 else x
 
 # <code>[a, b]</code>
-exports.randomInteger = randomInteger = (a, b) ->
+randomInteger = (a, b) ->
   Math.floor(random() * (b - a + 1)) + a
 
 randomToken = (n = 8, alphabet = ALPHABET58) ->
