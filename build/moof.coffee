@@ -401,6 +401,7 @@ class Button extends Element
     @label.setTextChild text
   
   click: (e) ->
+    e.stop()
     if @onclick
       @onclick e
   

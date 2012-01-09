@@ -514,6 +514,7 @@ Button = (function() {
   };
 
   Button.prototype.click = function(e) {
+    e.stop();
     if (this.onclick) return this.onclick(e);
   };
 
